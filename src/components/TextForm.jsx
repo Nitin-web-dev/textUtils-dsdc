@@ -3,7 +3,17 @@ import React,{useState} from 'react'
 export default function TextForm() {
 
   // destructuring ;
+  // check the textarea 
     const [ text, setText] = useState("");
+
+  //check the search input in word count
+    const [search, setSearch] = useState("");
+  
+  // check the value of word count
+    const [value, setValue] = useState("");
+
+  //check the trim 
+  const [trimmedValue, setTrimmedValue] = useState('');
 
     const handleChange = (e) =>{
       let newText = e.target.value;
@@ -37,6 +47,35 @@ export default function TextForm() {
     const handleClearText = (e) => {
       setText("");
     }
+
+    const handleWordCount = (e) => {
+      
+      // alert(search);
+      const regex =  new RegExp(search,'gi');
+      const newstr = text.match(regex);
+      setValue(newstr.length);
+
+
+    }
+
+
+
+    function handleTrimClick() {
+    
+      const trimmedString = text.trim();
+      alert(trimmedString);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -74,12 +113,21 @@ export default function TextForm() {
               <div className="input-group">
               <span className="input-group-text">First and last name</span>
             
-              <input type="text" aria-label="Last name" className="form-control"/>
+              <input 
+              value={search || ""}
+              onChange={(e)=>setSearch(e.target.value)}
+              type="text"
+              aria-label="Last name"
+              className="form-control"
+              />
+             
               </div>
+              <p>this word is count: {value}</p>
               </div>
-              <div className="modal-footer">
+            
+              <div className="modal-footer">  
                 
-                <button type="button" className="btn btn-primary">Check</button>
+                <button type="button" className="btn btn-primary" onClick={handleWordCount}>countWord</button>
               </div>
             </div>
           </div>
@@ -87,7 +135,7 @@ export default function TextForm() {
 {/* the model btn end  */}
 
 
-
+<button className='btn btn-outline-success mx-2' onClick={handleTrimClick}>Trim</button>
 
 
     <hr /> 
