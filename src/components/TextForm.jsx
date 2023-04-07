@@ -61,9 +61,9 @@ export default function TextForm() {
 
 
     function handleTrimClick() {
-    
-      const trimmedString = text.trim();
-      alert(trimmedString);
+
+      let res = text.replace(/\s/gi,"")
+      setText(res);
     }
 
 
