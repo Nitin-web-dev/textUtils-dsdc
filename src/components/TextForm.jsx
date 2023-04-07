@@ -22,27 +22,16 @@ export default function TextForm() {
     }
 
     const handlefirstToUpperCase = (e) => {
-      let newPera = "";
-        let arrStr = text.split(" ");
 
-        for(let i = 0; i < arrStr.length; i++){
-       
-          let newWord = arrStr[i].split("");
-          let rmWord = arrStr[i].slice(1);
-          let firstLetter = newWord[0];
-          
-          // the value of first letter to check if it uppercase or lowercase 
-          if(firstLetter == firstLetter.toUpperCase()){
-            firstLetter = firstLetter;
-          }else{
-            firstLetter = firstLetter.toUpperCase();
-          }
-          // append the word in pera 
-          newPera += firstLetter+rmWord+" ";
-          
-        }
-        setText(newPera);
-        // console.log(newPera)
+      let tempArr = text.split(" ");
+      let temp = "";
+      tempArr.forEach(element => {
+        element = element.charAt(0).toUpperCase()+element.substr(1,element.length).toLowerCase();
+        temp = temp+" "+element;
+        temp = temp.trim();
+        
+      });
+      setText(temp)
     }
 
     const handleClearText = (e) => {
