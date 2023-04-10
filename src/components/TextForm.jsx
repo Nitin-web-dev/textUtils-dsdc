@@ -10,7 +10,7 @@ export default function TextForm() {
     const [search, setSearch] = useState("");
   
   // check the value of word count
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(0);
 
   //check the trim 
   const [trimmedValue, setTrimmedValue] = useState('');
