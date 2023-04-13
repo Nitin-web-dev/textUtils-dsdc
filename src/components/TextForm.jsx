@@ -26,6 +26,13 @@ export default function TextForm(props) {
       
     });
     setText(temp)
+      if(text.length !== 0){
+          props.showAlert('success','only first letter to uppecase');
+      }else{
+          props.showAlert('danger','plz fill the input');
+
+      }
+
   }
 
 
@@ -34,14 +41,39 @@ export default function TextForm(props) {
   const handleOnUpperCase = (event) => {
     let newText = text.toUpperCase();
     setText(newText);
+        if(text.length !== 0){
+          props.showAlert('success','all letter to uppecase');
+      }else{
+          props.showAlert('danger','plz fill the input');
+
+      }
+   
+
   };
 
   const handleOnLowerCase = (event) => {
     let newText = text.toLowerCase();
     setText(newText);
+      if(text.length !== 0){
+        props.showAlert('success','all letter to lowercase');
+    }else{
+        props.showAlert('danger','plz fill the input');
+
+    }
+
+
+   
+
   };
   const handleOnClearText = (event) => {
     setText("");
+        if(text.length !== 0){
+          props.showAlert('success','clear the text');
+      }else{
+          props.showAlert('danger','plz fill the input');
+
+      }
+
   };
   const handleWordCount = (e) => {
     const regex =  new RegExp(searchValue,'gi');
