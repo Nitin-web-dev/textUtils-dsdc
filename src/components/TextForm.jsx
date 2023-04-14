@@ -17,15 +17,28 @@ export default function TextForm(props) {
 
   // contributed by rahul
   const handlefirstToUpperCase = (e) => {
-    let tempArr = text.split(" ");
-    let temp = "";
-    tempArr.forEach(element => {
-      element = element.charAt(0).toUpperCase()+element.substr(1,element.length).toLowerCase();
-      temp = temp+" "+element;
-      temp = temp.trim();
+    // let tempArr = text.split(" ");
+    // let temp = "";
+    // tempArr.forEach(element => {
+    //   element = element.charAt(0).toUpperCase()+element.substr(1,element.length).toLowerCase();
+    //   temp = temp+" "+element;
+    //   temp = temp.trim();
+    // });
+    // setText(temp)
       
-    });
-    setText(temp)
+    //+++++++ New code written by Nitin
+        let NewArr = text.split(" ");
+        let txtarr = [];
+          for( let i of NewArr){
+            let element = i.charAt(0).toUpperCase().concat(i.slice(1).toLowerCase());
+            txtarr.push(element);
+          }
+        let newtxt = txtarr.join(" ");
+        setText(newtxt)
+
+
+
+        /// condition for alert 
       if(text.length !== 0){
           props.showAlert('success','only first letter to uppecase');
       }else{
@@ -81,6 +94,8 @@ export default function TextForm(props) {
     setValue(newstr.length > 0 ? newstr.length : 0);
   }   
 
+
+  
   return (
     <div style={{backgroundColor:props.mode === 'dark'?'black':'white', color:props.mode === 'dark'?'white':'black'}}>
       <div className="mb-3">
