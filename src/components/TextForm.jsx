@@ -46,7 +46,7 @@ export default function TextForm(props) {
 
       }
 
-  }
+  } 
 
 
 
@@ -95,7 +95,7 @@ export default function TextForm(props) {
   }   
 
 
-  
+
   return (
     <div style={{backgroundColor:props.mode === 'dark'?'black':'white', color:props.mode === 'dark'?'white':'black'}}>
       <div className="mb-3">
