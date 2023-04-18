@@ -4,7 +4,10 @@ import TextForm from './components/TextForm';
 import AboutUs from './components/AboutUs';
 import { useState } from 'react';
 import Alert from './components/Alert';
+import GitHub from './components/GitHub';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
+
+
 
 function App() {
   const [mode, setMode] = useState('light')
@@ -41,6 +44,7 @@ function App() {
           
                 <Route path='/' element={<TextForm mode={mode} showAlert={showAlert}/>}/>
                 <Route path='/about' element={<AboutUs />}/>
+                <Route path='/Github' element={<GitHub />}/>
            </Routes>
           </div>
       </>
